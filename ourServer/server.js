@@ -136,7 +136,7 @@ io.sockets.on('connection', function (socket) {
   });
 
   socket.on("GetFriends", function(data) {
-    
+
   })
 
   socket.on('disconnect', function () {
