@@ -20,13 +20,15 @@ var contributorNodes = {};
 var contributorColors = {};
 
 function addContributor(person) {
-	var node = document.createElement('span');
-	node.innerHTML = '<div class="person" id="person_'+person.id+'" style="background-color: '+colors[colorIndex]+';"><img src="http://graph.facebook.com/'+person.id+'/picture">'+person.name+'</div>';
-	contributors_node.appendChild(node);
-	contributorNodes[person.id] = node;
-	contributorColors[person.id] = colors[colorIndex];
-	colorIndex++;
-	if(colorIndex >= colors.length) colorIndex = 0;
+	if(!contributorNodes[person.id]) {
+		var node = document.createElement('span');
+		node.innerHTML = '<div class="person" id="person_'+person.id+'" style="background-color: '+colors[colorIndex]+';"><img src="http://graph.facebook.com/'+person.id+'/picture">'+person.name+'</div>';
+		contributors_node.appendChild(node);
+		contributorNodes[person.id] = node;
+		contributorColors[person.id] = colors[colorIndex];
+		colorIndex++;
+		if(colorIndex >= colors.length) colorIndex = 0;
+	}
 }
 
 function removeContributor(person) {
