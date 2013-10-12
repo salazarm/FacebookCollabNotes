@@ -21,17 +21,41 @@ var FBCollab ={
     },
     getFriends: function(user) {
       // Parse query here
+      parseApp.findMany("Users", {first: user.id  })
+    },
+    goOnline: function(user) {
+      parseApp.update("Users", user.id, {online: true})
+    }, 
+    goOffline: function(user) {
+      parseApp.update("Users", user.id, {online: false })
     }
   }
+}
+
+sockets_store = {
+  // 'id' : socket
 }
 
 
 io.sockets.on('connection', function (socket) {
 
-  socket.on("Register", function(data) {
+  socket.on("Online", function(data) {
+
+    sockets_store[id] = socket
     socket.set("User", data)
     io.sockets.emit("UserOnline", data )
-    socket.emit( FBCOllab.parse.getFriends( user ) )
+    
+    friends = FBCOllab.parse.getFriends( user ) 
+    if ( ) {
+      // user exits
+
+
+    } else {
+      // store all of his data.
+
+
+    }
+    socket.emit(  )
   })
 
   socket.on('EditNote', function (data) {
@@ -54,6 +78,7 @@ io.sockets.on('connection', function (socket) {
 
   socket.on('disconnect', function () {
     socket.get("User", function(err, data) {
+      delete sockets_store[id]
       io.sockets.emit('UserDisconnect', data);
     })
   });
