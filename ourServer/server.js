@@ -7,7 +7,9 @@ var APP_ID = "IKqazQRognbSIXaBXhOR3edkG23W24QtvweETH2g";
 var MASTER_KEY = "7IyaybDg1RDfvAMDeTQqE7HQx8CWpNJkiYinmZYc";
 var parseApp = new Parse(APP_ID, MASTER_KEY);
 
-
+parseApp.insert("RegisteredUsers", {"dffd": "sffsf" }, function(err, data) {
+        console.log(arguments);
+      });
 
 
 var FBCollab = {
@@ -17,7 +19,7 @@ var FBCollab = {
     getUser: function(fbUser) {
       var response = Q.defer();
 
-      parseApp.findOne("Users", fbUser.id, function(err, data) {
+      parseApp.find("Users", fbUser.id, function(err, data) {
         if(err) {
           response.resolve( false )
         } else {
