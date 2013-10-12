@@ -1,0 +1,58 @@
+#fbNotesJewel a.jewelButton {
+	background-image: url("");
+	background-repeat: no-repeat;
+}
+
+#fbNotesJewel.openToggler a.jewelButton {
+	background-image: url("");
+}
+
+#fbNotesFlyout {
+	right: -249px;
+}
+
+#fbNotesFlyout .beeperNub {
+	right: 249px;
+}
+
+#u_0_9 ._536_ {
+	padding: 0;
+	position: relative;
+}
+
+#contributors {
+	min-height: 30px;
+	overflow: auto;
+}
+
+#contributors .person {
+    float: left;
+    margin: 5px;
+    border: 1px solid rgba(0,0,0,.2);
+    padding-right: 6px;
+    border-radius: 3px;
+	color: white;
+}
+
+#contributors .person img {
+    background: black;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 2px;
+    margin-right: 6px;
+}
+
+#add_new {
+	height: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	border: none;
+	background: none;
+	width: 170px;
+	font-size: 13px;
+	padding-left: 30px;
+}
