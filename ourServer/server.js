@@ -1,5 +1,6 @@
 var io = require('socket.io').listen(9002);
 var Parse = require('node-parse-api').Parse;
+var Q = require('q');
 
 var APP_ID = "IKqazQRognbSIXaBXhOR3edkG23W24QtvweETH2g";
 var MASTER_KEY = "7IyaybDg1RDfvAMDeTQqE7HQx8CWpNJkiYinmZYc";
@@ -8,9 +9,15 @@ var parseApp = new Parse(APP_ID, MASTER_KEY);
 var FBCollab ={
   parse: {
     createNewNote: function(user) {
+      var response = Q.defer();
       parseApp.insert("Note", {creator_id: user.id }, function(err, data) {
-        return data
+        if (err) {
+          response.reject( new Error("ParseAPI Error") )
+        } else {
+          response.resolve( data )
+        }
       })
+      return Q.promise;
     },
     getFriends: function(user) {
       // Parse query here
@@ -52,3 +59,4 @@ io.sockets.on('connection', function (socket) {
   });
 
 });
+
