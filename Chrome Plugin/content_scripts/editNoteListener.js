@@ -1,0 +1,5 @@
+var editNoteListener = {
+  initialize: function() {
+
+  }
+}
