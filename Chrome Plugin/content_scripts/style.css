@@ -23,6 +23,7 @@
 #contributors {
 	min-height: 30px;
 	overflow: auto;
+	margin-right: 200px;
 }
 
 #contributors .person {
